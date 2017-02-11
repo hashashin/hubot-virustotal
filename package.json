@@ -1,0 +1,37 @@
+{
+  "name": "hubot-virustotal",
+  "description": "Check urls against virustotal api",
+  "version": "0.0.1",
+  "author": "hashashin <gentoo.power@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "hubot",
+    "hubot-scripts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hashashin/hubot-virustotal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hashashin/hubot-virustotal/issues"
+  },
+  "dependencies": {
+    "coffee-script": "~1.12",
+    "node-virustotal": "^2.4.1"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "mocha": "*",
+    "chai": "*",
+    "sinon-chai": "*",
+    "sinon": "*",
+    "grunt-mocha-test": "~0.13.2",
+    "grunt-release": "~0.14.0",
+    "matchdep": "~1.0.1",
+    "grunt-contrib-watch": "~1.0.0"
+  },
+  "main": "index.coffee",
+  "scripts": {
+    "test": "grunt test"
+  }
+}
