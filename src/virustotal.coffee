@@ -5,7 +5,7 @@
 #   HUBOT_VT_APIKEY
 #
 # Commands:
-#   hubot hello - <what the respond trigger does>
+#   hubot vt url <url> - Check url against virustotal api
 #
 # Author:
 #   hashashin
