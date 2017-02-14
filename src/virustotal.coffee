@@ -9,15 +9,20 @@
 #
 # Author:
 #   hashashin
-
-vt = require('node-virustotal')
-con = vt.MakePublicConnection()
-con.setKey process.env.HUBOT_VT_APIKEY
+TinyURL = require('tinyurl')
+virustotal = require('virustotal.js')
+virustotal.setKey process.env.HUBOT_VT_APIKEY
 
 module.exports = (robot) ->
   robot.respond /vt url\s+(https?:\/\/[^\s]+)$/i, (msg) ->
     msg.reply "Waiting virustotal response"
-    con.UrlEvaluation msg.match[1], ((data) ->
-      msg.reply "Positives: #{data.positives}"
-    ), (err) ->
-      robot.logger.error err
+    virustotal.getUrlReport msg.match[1], (err, res) ->
+      if err
+        robot.logger.error err
+        return
+      else if res.positives > 1
+        TinyURL.shorten res.permalink, (turl) ->
+          url = turl
+          msg.reply "VT positives for #{res.url}: #{res.positives}\n#{url}"
+      else
+        msg.reply "VT all good, no positives"

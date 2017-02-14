@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "coffee-script": "~1.12",
-    "node-virustotal": "github:hashashin/node-virustotal"
+    "tinyurl": "^1.1.2",
+    "virustotal.js": "^0.3.1"
   },
   "devDependencies": {
     "grunt": "*",
